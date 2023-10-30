@@ -2,41 +2,33 @@
 
 #include <stdio.h> 
 
-//clear input buffer
-void cl_buf(void);
-
 
 int main(void) 
 {   
     int sawan_type, no_sawan, orders; 
-    float total, sawan[3] = {7000.0, 10000.0, 12000.0};
+    float total, price;
     char order_type, answer;  
 
     orders = 0; 
     for (orders = 0; orders < 5; ++orders) 
     { 
-        // get the sawan type 
-        while (1)
-        {
-            printf("Sawan type: "); 
-            scanf("%d", &sawan_type); 
-            cl_buf(); 
+        
+        printf("Sawan type: "); 
+        scanf("%d", &sawan_type); 
 
-            if (!(sawan_type < 1 || sawan_type > 3)) 
-            { 
-                break; 
-            }
-            printf("invalid sawan type\n");
+        if (sawan_type < 1 || sawan_type > 3)
+        { 
+            --orders; 
+            printf("invalid sawan type\n\n");
+            continue; 
         }
 
         printf("No of Sawans: ");
         scanf("%d", &no_sawan); 
-        cl_buf(); 
 
         // get the order type
         printf("Order type:"); 
-        scanf("%c", &order_type);
-        cl_buf(); 
+        scanf(" %c", &order_type);
 
         if (!(order_type == 'T' || order_type == 'I' || order_type == 'D'))
         {
@@ -45,13 +37,17 @@ int main(void)
         }
 
         //calculate the total amount 
-        total = sawan[sawan_type - 1] * no_sawan; 
+        price = sawan_type == 1 ? 7000 : sawan_type == 2 ? 10000 : sawan_type == 3 ? 12000 : 0;
+        total = price * no_sawan;
 
         // add the service or delivery charges
-        if (order_type == 'I') { 
-            total += ((total / 100)* 5); 
-        }else if (order_type == 'D') { 
-            total += ((total / 100) * 10); 
+        if (order_type == 'I') 
+        { 
+            total += (total / 100 * 5); 
+        }
+        else if (order_type == 'D') 
+        { 
+            total += (total / 100 * 10); 
         }
 
         // print the the total amount 
@@ -61,18 +57,12 @@ int main(void)
         if (orders != 4) 
         { 
             printf("Do you want to input the next order details: "); 
-            scanf("%c", &answer);
-            cl_buf();
+            scanf(" %c", &answer);
 
-            if (answer == 'N') { 
+            if (answer == 'N' || answer == 'n') { 
                 return 0; 
             }
+            printf("\n");
         }
     }
-}
-
-void cl_buf(void) 
-{ 
-    while (getchar() != '\n');
-    return;
 }

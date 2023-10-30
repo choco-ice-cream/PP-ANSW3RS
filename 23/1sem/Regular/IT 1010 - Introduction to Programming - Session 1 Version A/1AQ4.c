@@ -2,6 +2,8 @@
 
 int main(void)
 { 
+    int i;
+    
     // get input and write to the file
     FILE *file = fopen("Items.dat", "w"); 
     if (file == NULL) 
@@ -11,7 +13,7 @@ int main(void)
     }
 
     // get 5 input and store in the file
-    for (int i = 0; i < 5; ++i)
+    for (i = 0; i < 5; ++i)
     {
         int code;
         char name[30]; 

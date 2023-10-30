@@ -9,22 +9,23 @@ void testpaymentAfterTax();
 // main function
 int main(void) 
 { 
+    testpaymentAfterTax();
+
     int days; 
     char v_type; 
     double payment, payment_after_tax;
 
+    // get input
     printf("Enter the vehicle type: ");
     scanf("%c", &v_type);
-
     printf("Enter the number of days: "); 
     scanf("%d", &days); 
 
     payment = PayableAmount(v_type, days);
     payment_after_tax = paymentAfterTax(payment);
 
+    // output
     printf("Final payment: %.2lf\n", payment_after_tax);
-
-    testpaymentAfterTax();
 
     return 0; 
 }
@@ -74,24 +75,7 @@ double paymentAfterTax(double payment)
 // testing 
 void testpaymentAfterTax() 
 { 
-    printf("\ntesting\n"); 
-
-    // test 1
-    double payment1 = 8000.0;
-    double result1 = paymentAfterTax(payment1);
-    assert(payment1 == result1);
-
-    // test 2
-    double payment2 = 12000.0;
-    double result2 = paymentAfterTax(payment2);
-    double expected2 = payment2 + payment2 / 100 * 5;
-    assert(result2 == expected2);
-
-    // test 3
-    double payment3 = 20000.0;
-    double result3 = paymentAfterTax(payment3);
-    double expected3 = payment3 + payment3 / 100 * 10; 
-    assert(result3 == expected3);
-
-    printf("tests passed.\n"); 
+    assert(8000 == paymentAfterTax(8000));
+    assert(22000 == paymentAfterTax(20000));
+    assert(12600 == paymentAfterTax(12000));
 }

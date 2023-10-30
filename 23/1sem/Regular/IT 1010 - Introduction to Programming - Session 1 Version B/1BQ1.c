@@ -10,18 +10,13 @@ int main(void)
     for (int i = 0; i < 5; ++i) 
     { 
         // get sawan type 
-        while (1) 
-        {
-            printf("Sawan type: "); 
-            scanf("%d", &sawan_type); 
+        printf("Sawan type: "); 
+        scanf("%d", &sawan_type); 
 
-            if (!(sawan_type < 4 && sawan_type > 0)) 
-            { 
-                printf("wrong sawan type\n"); 
-                while (getchar() != '\n');
-                continue; 
-            }
-            break;
+        if (sawan_type > 3 || sawan_type < 1) 
+        { 
+            printf("wrong sawan type\n"); 
+            continue; 
         }
 
         printf("No of Sawans: "); 
@@ -41,9 +36,8 @@ int main(void)
             total = no * 15000;
         }
 
-        while (getchar() != '\n'); 
         printf("Order type: "); 
-        scanf("%c", &order_type); 
+        scanf(" %c", &order_type); 
 
         // calculate total with additional charges
         if (order_type == 'I') 
@@ -67,11 +61,10 @@ int main(void)
         printf("The amount to be paid: %.2f\n", total);
 
         // check if there are more orders to be taken 
-        while (getchar() != '\n'); 
         printf("Do you want to input the next order details: ");
-        scanf("%c", &answer); 
+        scanf(" %c", &answer); 
 
-        if (answer == 'N')
+        if (answer == 'N' || answer == 'n')
         { 
             break;
         }

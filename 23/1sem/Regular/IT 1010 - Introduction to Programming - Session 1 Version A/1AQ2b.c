@@ -1,45 +1,50 @@
 #include <stdio.h> 
 
-int main(void) 
-{ 
-    int A[2][3], B[3][3], C[2][3], temp;
-    int i, j, k;
+int main(void)
+{
+    // make matrix and get values 
+    int A[2][3], B[3][3], C[2][3];
+    int i, j;
 
-    // get values for A matrix 
-    printf("enter values for A: \n");
-    for (i = 0; i < 2; ++i) 
-    {
-        printf("row :%d\n", i); 
+    // get input - A matrix
+    printf("\nA matrix\n");
+    for (i = 0; i < 2; ++i )
+    { 
+        printf("Enter value for row: %d\n", i);
+
         for (j = 0; j < 3; ++j)
-        {
-            printf("Enter column %d value: ", j);
+        { 
+            printf("\tcolumn: %d , value: ", j);
             scanf("%d", &A[i][j]);
         }
     }
 
-    // get values for B matrix 
-    printf("enter values for B: \n");
-    for (i = 0; i < 3; ++i) 
-    {
-        printf("row :%d\n", i); 
+    // get input - B matrix
+    printf("\nB matrix\n");
+    for (i = 0; i < 3; ++i )
+    { 
+        printf("Enter value for row: %d\n", i);
+
         for (j = 0; j < 3; ++j)
-        {
-            printf("Enter column %d value: ", j);
+        { 
+            printf("\tcolumn: %d , value: ", j);
             scanf("%d", &B[i][j]);
         }
     }
 
-    // multiply A and B matrix and get C
+    // matrix multiplication
     for (i = 0; i < 2; ++i)
     { 
+        
         for (j = 0; j < 3; ++j)
         { 
-            temp = 0;
+            int n, k;
+            n = k = 0; 
             for (k = 0; k < 3; ++k)
             {
-                temp += A[i][k] * B[k][j];
+                n +=  (A[i][k]) * (B[k][j]);
             }
-            C[i][j] = temp; 
+            C[i][j] = n;
         }
     }
 
@@ -67,16 +72,18 @@ int main(void)
     }
     printf("\n");
 
-    // print C matrix 
-    printf("C matrix\n"); 
-    for (i = 0; i < 2; ++i) 
+    // print C matrix
+    printf("\n");
+    for (i = 0; i < 2; ++i)
     { 
-        for (j = 0; j < 3; ++j) 
-        { 
-            printf("|%d|", C[i][j]);
+        for (j = 0; j < 3; ++j)
+        {
+            printf("| %d |", C[i][j]);
         }
-        printf("\n"); 
+        printf("\n");
     }
+
+
 
     return 0; 
 }
