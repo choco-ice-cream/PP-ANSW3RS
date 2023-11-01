@@ -21,8 +21,7 @@ int main(void)
         scanf("%d", &id);
 
         printf("Enter name: "); 
-        getchar();
-        fgets(name, sizeof(name), stdin);
+        scanf("%s", name); 
 
         fprintf(file, "%d\n%s\n", id, name);
 
