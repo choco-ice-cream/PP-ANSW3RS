@@ -31,7 +31,7 @@ int main(void)
     {
         for (j = 0; j < 4; j++)
         {
-            if (image[i][j])
+            if (image[i][j] == 0)
                 continue;
             if (image[i][j] && image[i + 1][j] && image[i][j + 1] && image[i + 1][j + 1])
                 count++; 
