@@ -22,6 +22,9 @@ int main(void)
     
     // output
     printf("Revered string: ");
-    printf("%s", strings);
+    for (j = 0; j < 21; j++)
+    {
+        printf("%c", strings[j]);
+    }
     return 0; 
 }
