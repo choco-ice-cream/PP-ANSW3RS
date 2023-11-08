@@ -1,4 +1,5 @@
 #include <stdio.h> 
+#include <string.h>
 
 int main(void)
 {
@@ -8,17 +9,9 @@ int main(void)
 
     // get input
     printf("Enter string  : ");
-    for (i = 0; i < 20; i++)
-    {
-        if ((c = getchar()) == '\n')
-        {
-            strings[i] = '\0';
-            i--;
-            break;
-        } 
+	scanf("%s", strings); 
 
-        strings[i] = c; 
-    }
+	i = strlen(strings) - 1;  
 
     // reverse the string  
     for (j = 0; j != (i + 1)/ 2; j++)
