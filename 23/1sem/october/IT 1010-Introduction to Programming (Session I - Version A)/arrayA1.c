@@ -10,7 +10,6 @@ int main(void)
     // get input
     printf("Enter string  : ");
 	scanf("%s", strings); 
-
 	i = strlen(strings) - 1;  
 
     // reverse the string  
