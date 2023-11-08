@@ -22,9 +22,6 @@ int main(void)
     
     // output
     printf("Revered string: ");
-    for (i = 0; i < 20 && strings[i] != '\0'; i++)
-    {
-        printf("%c", strings[i]); 
-    }
+    printf("%s", strings);
     return 0; 
 }
