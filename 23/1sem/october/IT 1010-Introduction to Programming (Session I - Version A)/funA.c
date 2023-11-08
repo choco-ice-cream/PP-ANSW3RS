@@ -7,6 +7,8 @@ void displayDetails(float payment, float tax);
 
 int main(void)
 {
+    assert(calcPayment(1, 1.5) == 120);
+    assert(calcPayment(3, 11) == 1684);
     int pType; 
     float totalData, payment, tax; 
 
