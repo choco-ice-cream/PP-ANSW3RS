@@ -9,19 +9,21 @@ int main(void)
 {
     assert(calcPayment(1, 1.5) == 120);
     assert(calcPayment(3, 11) == 1684);
-    int pType; 
+    int pType, i; 
     float totalData, payment, tax; 
 
     // get inputs
-    printf("Package Type: "); 
-    scanf("%d", &pType); 
-    printf("Total Data usage: "); 
-    scanf("%f", &totalData); 
+    for (i = 0; i < 3; i++)
+    {
+        printf("Package Type: "); 
+        scanf("%d", &pType); 
+        printf("Total Data usage: "); 
+        scanf("%f", &totalData); 
 
-    payment = calcPayment(pType, totalData); 
-    tax = calcTax(payment);
-    displayDetails(payment, tax); 
-
+        payment = calcPayment(pType, totalData); 
+        tax = calcTax(payment);
+        displayDetails(payment, tax); 
+    }
     return 0; 
 }
 
